@@ -14,9 +14,10 @@
 				<h:outputText value="Novo Produto" rendered="#{empty produtoBean.produto.id}"/>
 				<h:outputText value="Editar Produto" rendered="#{not empty produtoBean.produto.id}" />
 			</h2>
-			<h:inputHidden value="#{produtoBean.produto.id}" />
 		
-			<h:panelGrid columns="2">
+			<h:panelGrid columns="1">
+				<h:inputHidden value="#{produtoBean.produto.id}" />
+	
 				<h:outputLabel value="Nome:" for="nome"/>
 				<h:inputText id="nome" value="${produtoBean.produto.nome}"/>
 				
@@ -26,10 +27,13 @@
 				<h:outputLabel value="Preço:" for="preco"/>
 				<h:inputText id="preco" value="${produtoBean.produto.preco}"/>
 				
-				<h:commandButton value="Gravar" action="#{produtoBean.adicionar}"/>
+				<h:commandButton value="Gravar" action="#{produtoBean.adicionar}">
+					<f:ajax render="@form :tabela"
+							execute="@form"/>
+				</h:commandButton>
 			</h:panelGrid>
 		</h:form>
-		<h:form>
+		<h:form id="tabela">
 			<h:dataTable border="2" value="#{produtoBean.produtos}" var="produto">
 				<h:column>
 					<f:facet name="header">Nome</f:facet>
