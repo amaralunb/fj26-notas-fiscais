@@ -28,6 +28,7 @@ public class ProdutoBean {
 		ProdutoDao dao = new ProdutoDao();
 		dao.adiciona(produto);
 		this.produto = new Produto();
+		this.produtos = dao.listaTodos();
 	}
 	
 }
