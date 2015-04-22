@@ -9,7 +9,7 @@
 		<title>Cadastro</title>
 	</h:head>
 	<h:body>
-		<h:form>
+		<h:form id="cadastro">
 			<h2>
 				<h:outputText value="Novo Produto" rendered="#{empty produtoBean.produto.id}"/>
 				<h:outputText value="Editar Produto" rendered="#{not empty produtoBean.produto.id}" />
@@ -58,6 +58,8 @@
 					
 					<h:commandLink value="Alterar">
 						<f:setPropertyActionListener value="#{produto}" target="#{produtoBean.produto}" />
+						<f:ajax render="@form :cadastro"
+								execute="@form"/>
 					</h:commandLink>				
 				</h:column>
 				
