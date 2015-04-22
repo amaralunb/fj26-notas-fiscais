@@ -16,6 +16,10 @@ public class ProdutoBean {
 		return this.produto;
 	}
 	
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
+
 	public List<Produto> getProdutos() {
 		if (produtos == null) {
 			System.out.println("Carregando produtos...");
