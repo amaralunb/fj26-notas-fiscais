@@ -28,6 +28,8 @@
 				
 				<h:commandButton value="Gravar" action="#{produtoBean.adicionar}"/>
 			</h:panelGrid>
+		</h:form>
+		<h:form>
 			<h:dataTable border="2" value="#{produtoBean.produtos}" var="produto">
 				<h:column>
 					<f:facet name="header">Nome</f:facet>
@@ -46,7 +48,9 @@
 				
 				<h:column>
 					<f:facet name="header">Ações</f:facet>
-					<h:commandLink value="Remover"  action="#{produtoBean.remover(produto)}" />
+					<h:commandLink value="Remover" action="#{produtoBean.remover(produto)}"> 
+						<f:ajax render="@form" />
+					</h:commandLink>
 					
 					<h:commandLink value="Alterar">
 						<f:setPropertyActionListener value="#{produto}" target="#{produtoBean.produto}" />
