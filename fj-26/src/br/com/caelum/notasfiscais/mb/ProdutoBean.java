@@ -17,6 +17,10 @@ public class ProdutoBean {
 	}
 	
 	public List<Produto> getProdutos() {
+		if (produtos == null) {
+			System.out.println("Carregando produtos...");
+			produtos = new ProdutoDao().listaTodos();
+		}
 		return this.produtos;
 	}
 	
