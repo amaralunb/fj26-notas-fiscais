@@ -26,9 +26,13 @@ public class ProdutoBean {
 	
 	public void adicionar () {
 		ProdutoDao dao = new ProdutoDao();
-		dao.adiciona(produto);
-		this.produto = new Produto();
+		if(produto.getId() == null)
+			dao.adiciona(produto);
+		else
+			dao.atualiza(produto);
+		
 		this.produtos = dao.listaTodos();
+		this.produto = new Produto();
 	}
 	
 	public void remover (Produto produto) {
