@@ -36,7 +36,8 @@
 					</h:commandButton>
 			</h:form>
 			<h:form id="tabela">
-				<h:dataTable border="2" value="#{produtoBean.produtos}" var="produto">
+				<h:dataTable border="2" value="#{produtoBean.produtos}" var="produto"
+					styleClass="dados" rowClasses="impar,par">
 					<h:column>
 						<f:facet name="header">Nome</f:facet>
 						#{produto.nome}
