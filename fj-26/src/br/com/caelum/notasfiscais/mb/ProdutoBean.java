@@ -28,7 +28,7 @@ public class ProdutoBean {
 		return this.produtos;
 	}
 	
-	public void adicionar () {
+	public String adicionar () {
 		System.out.println("Será que passa por aqui?");
 		ProdutoDao dao = new ProdutoDao();
 		if(produto.getId() == null)
@@ -38,6 +38,8 @@ public class ProdutoBean {
 		
 		this.produtos = dao.listaTodos();
 		this.produto = new Produto();
+		
+		return "produto?faces-redirect=true";
 	}
 	
 	public void remover (Produto produto) {
