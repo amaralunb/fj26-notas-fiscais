@@ -29,6 +29,7 @@ public class ProdutoBean {
 	}
 	
 	public void adicionar () {
+		System.out.println("Será que passa por aqui?");
 		ProdutoDao dao = new ProdutoDao();
 		if(produto.getId() == null)
 			dao.adiciona(produto);

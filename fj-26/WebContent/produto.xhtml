@@ -20,11 +20,12 @@
 					<h:outputText value="Editar Produto" rendered="#{not empty produtoBean.produto.id}" />
 				</h2>
 				<fieldset>
+					<legend>Dados do Produto</legend>
 					<h:inputHidden value="#{produtoBean.produto.id}" />
-		
+
 					<h:outputLabel value="Nome:" for="nome"/>
 					<h:inputText id="nome" value="${produtoBean.produto.nome}"/>
-					
+
 					<h:outputLabel value="Descrição:" for="descricao"/>
 					<h:inputTextarea id="descricao" value="${produtoBean.produto.descricao}"/>
 					
@@ -57,16 +58,17 @@
 					</h:column>
 					
 					<h:column>
-						<f:facet name="header">Ações</f:facet>
+						<f:facet name="header"></f:facet>
 						<h:commandLink value="Remover" action="#{produtoBean.remover(produto)}"> 
 							<f:ajax render="@form" />
 						</h:commandLink>
-						
+					</h:column>
+					<h:column>
 						<h:commandLink value="Alterar">
 							<f:setPropertyActionListener value="#{produto}" target="#{produtoBean.produto}" />
 							<f:ajax render="@form :cadastro"
 									execute="@form"/>
-						</h:commandLink>				
+						</h:commandLink>
 					</h:column>
 					
 				</h:dataTable>
