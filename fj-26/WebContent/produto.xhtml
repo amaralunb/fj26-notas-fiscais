@@ -19,6 +19,7 @@
 					<h:outputText value="Novo Produto" rendered="#{empty produtoBean.produto.id}"/>
 					<h:outputText value="Editar Produto" rendered="#{not empty produtoBean.produto.id}" />
 				</h2>
+				<fieldset>
 					<h:inputHidden value="#{produtoBean.produto.id}" />
 		
 					<h:outputLabel value="Nome:" for="nome"/>
@@ -34,8 +35,10 @@
 						<f:ajax render="@form :tabela"
 								execute="@form"/>
 					</h:commandButton>
+				</fieldset>
 			</h:form>
 			<h:form id="tabela">
+				<h2>Listagem de Produtos</h2>
 				<h:dataTable border="2" value="#{produtoBean.produtos}" var="produto"
 					styleClass="dados" rowClasses="impar,par">
 					<h:column>
