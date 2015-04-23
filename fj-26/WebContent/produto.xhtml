@@ -19,8 +19,6 @@
 					<h:outputText value="Novo Produto" rendered="#{empty produtoBean.produto.id}"/>
 					<h:outputText value="Editar Produto" rendered="#{not empty produtoBean.produto.id}" />
 				</h2>
-			
-				<h:panelGrid columns="1">
 					<h:inputHidden value="#{produtoBean.produto.id}" />
 		
 					<h:outputLabel value="Nome:" for="nome"/>
@@ -36,7 +34,6 @@
 						<f:ajax render="@form :tabela"
 								execute="@form"/>
 					</h:commandButton>
-				</h:panelGrid>
 			</h:form>
 			<h:form id="tabela">
 				<h:dataTable border="2" value="#{produtoBean.produtos}" var="produto">
