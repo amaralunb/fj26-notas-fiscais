@@ -213,10 +213,12 @@ table.dados tr th{
 	color:#fff;
 	color:1em;
 	padding:10px;
+	text-align: center;
 }
 
 table.dados tr td{
 	padding:5px 10px;
+	text-align: center;
 }
 
 .campos tbody tr td {
