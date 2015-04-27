@@ -19,6 +19,8 @@ public class Usuario implements Serializable {
 	private String login;
 
 	private String senha;
+	
+	private String novaSenha;
 
 	public Long getId() {
 		return id;
@@ -42,6 +44,14 @@ public class Usuario implements Serializable {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public String getNovaSenha() {
+		return novaSenha;
+	}
+
+	public void setNovaSenha(String novaSenha) {
+		this.novaSenha = novaSenha;
 	}
 
 }

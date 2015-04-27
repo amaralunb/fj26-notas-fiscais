@@ -7,18 +7,18 @@
 
 	<ui:composition template="/_template.xhtml">
 		<ui:define name="corpo">
-			<h2>Login no sistema - UberDist</h2>
-			<h:form id="formLogin">
+			<h2>Cadastrar novo usuário</h2>
+			<h:form id="cadastro">
 				<h:panelGrid columns="2" styleClass="campos">
-					
-					<h:outputLabel value="Login:" for="login" />
+					<h:outputLabel value="Informe seu login:" for="login" />
 					<h:inputText id="login" value="#{loginBean.usuario.login}" />
-					
-					<h:outputLabel value="Senha:" for="senha"/>
+						
+					<h:outputLabel value="Nova senha:" for="senha"/>
 					<h:inputSecret id="senha" value="#{loginBean.usuario.senha}" />
 					
-					<h:commandButton value="Entrar" action="#{loginBean.efetuaLogin}" />
-					<h:commandButton value="Cadastrar" action="#{loginBean.cadastrar}" />
+					<h:outputLabel value="Repita a nova senha:" for="novaSenha"/>
+					<h:inputSecret id="novaSenha" value="#{loginBean.usuario.novaSenha}" />
+					
 				</h:panelGrid>
 			</h:form>
 		</ui:define>

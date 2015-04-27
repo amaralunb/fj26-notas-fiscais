@@ -30,6 +30,10 @@ public class LoginBean {
 		}
 	}
 	
+	public String cadastrar() {
+		
+	}
+	
 	public String logout() {
 		usuarioLogado.deslogar();
 		return "login";

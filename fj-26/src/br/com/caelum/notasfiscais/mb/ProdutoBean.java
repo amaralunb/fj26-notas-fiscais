@@ -29,7 +29,7 @@ public class ProdutoBean {
 	}
 	
 	public String adicionar () {
-		System.out.println("Será que passa por aqui?");
+		//System.out.println("Será que passa por aqui?");
 		ProdutoDao dao = new ProdutoDao();
 		if(produto.getId() == null)
 			dao.adiciona(produto);
