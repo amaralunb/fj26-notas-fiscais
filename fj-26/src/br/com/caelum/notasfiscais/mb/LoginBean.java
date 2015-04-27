@@ -31,7 +31,7 @@ public class LoginBean {
 	}
 	
 	public String cadastrar() {
-		
+		return "login";
 	}
 	
 	public String logout() {
