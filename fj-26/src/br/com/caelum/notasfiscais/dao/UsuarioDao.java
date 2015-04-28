@@ -15,6 +15,15 @@ public class UsuarioDao implements Serializable {
 	@Inject
 	private EntityManager manager;
 	
+	public void adiciona(Usuario usuario) {
+		manager.getTransaction().begin();
+
+		//persiste o objeto
+		manager.persist(usuario);
+		
+		manager.getTransaction().commit();
+	}
+	
 	public boolean existe(Usuario usuario) {
 		
 		Query query = manager.createQuery("select u from Usuario u where u.login = :pLogin and u.senha = :pSenha")

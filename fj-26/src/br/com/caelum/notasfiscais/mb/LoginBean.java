@@ -29,14 +29,21 @@ public class LoginBean {
 			return "login";
 		}
 	}
+
+	public String cadastrarUsuario() {
+		dao.adiciona(usuario);
+		return "login?faces-redirect=true";
 	
-	public String cadastrar() {
-		return "login";
 	}
+	
+	public String goToCadastro() {
+		return "cadastro";
+	}
+	
 	
 	public String logout() {
 		usuarioLogado.deslogar();
-		return "login";
+		return "login?faces-redirect=true";
 	}
 	
 	public Usuario getUsuario() {
