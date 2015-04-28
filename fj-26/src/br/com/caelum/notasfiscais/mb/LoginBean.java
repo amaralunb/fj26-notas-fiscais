@@ -36,11 +36,6 @@ public class LoginBean {
 	
 	}
 	
-	public String goToCadastro() {
-		return "cadastro";
-	}
-	
-	
 	public String logout() {
 		usuarioLogado.deslogar();
 		return "login?faces-redirect=true";

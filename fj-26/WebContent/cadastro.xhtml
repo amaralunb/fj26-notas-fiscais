@@ -16,7 +16,8 @@
 					<h:outputLabel value="Nova senha:" for="senha"/>
 					<h:inputSecret id="senha" value="#{loginBean.usuario.senha}" />
 					
-					<h:commandButton value="Cadastrar" action="#{loginBean.cadastrarUsuario}" />
+					<h:commandButton value="Cadastrar" action="#{loginBean.cadastrarUsuario}" >
+					</h:commandButton>
 				</h:panelGrid>
 			</h:form>
 		</ui:define>
