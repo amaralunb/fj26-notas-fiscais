@@ -3,14 +3,19 @@ package br.com.caelum.notasfiscais.mb;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.inject.Inject;
 
 import br.com.caelum.notasfiscais.dao.ProdutoDao;
 import br.com.caelum.notasfiscais.modelo.Produto;
+import br.com.caelum.notasfiscais.tx.Transactional;
 
 @ManagedBean
 public class ProdutoBean {
 	private Produto produto = new Produto();
 	private List<Produto> produtos;
+	
+	@Inject 
+	private ProdutoDao produtoDao; 
 
 	public Produto getProduto() {
 		return this.produto;
@@ -23,29 +28,28 @@ public class ProdutoBean {
 	public List<Produto> getProdutos() {
 		if (produtos == null) {
 			System.out.println("Carregando produtos...");
-			produtos = new ProdutoDao().listaTodos();
+			produtos = produtoDao.listaTodos();
 		}
 		return this.produtos;
 	}
 	
+	@Transactional
 	public String adicionar () {
 		//System.out.println("Será que passa por aqui?");
-		ProdutoDao dao = new ProdutoDao();
 		if(produto.getId() == null)
-			dao.adiciona(produto);
+			produtoDao.adiciona(produto);
 		else
-			dao.atualiza(produto);
+			produtoDao.atualiza(produto);
 		
-		this.produtos = dao.listaTodos();
+		this.produtos = produtoDao.listaTodos();
 		this.produto = new Produto();
 		
 		return "produto?faces-redirect=true";
 	}
 	
 	public void remover (Produto produto) {
-		ProdutoDao dao = new ProdutoDao();
-		dao.remove(produto);
-		this.produtos = dao.listaTodos();
+		produtoDao.remove(produto);
+		this.produtos = produtoDao.listaTodos();
 	}
 	
 	public void cancelar () {

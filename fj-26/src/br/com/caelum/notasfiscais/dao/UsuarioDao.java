@@ -17,7 +17,7 @@ public class UsuarioDao implements Serializable {
 	
 	public void adiciona(Usuario usuario) {
 		manager.getTransaction().begin();
-
+		
 		//persiste o objeto
 		manager.persist(usuario);
 		
