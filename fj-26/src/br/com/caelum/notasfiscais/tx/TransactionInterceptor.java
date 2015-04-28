@@ -3,6 +3,7 @@ package br.com.caelum.notasfiscais.tx;
 import java.io.Serializable;
 
 import javax.inject.Inject;
+import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 import javax.persistence.EntityManager;
@@ -16,6 +17,7 @@ public class TransactionInterceptor implements Serializable {
 	@Inject
 	private EntityManager manager;
 
+	@AroundInvoke
 	public Object intercept(InvocationContext ctx) throws Exception {
 		System.out.println("Abrindo a transação");
 		manager.getTransaction().begin();

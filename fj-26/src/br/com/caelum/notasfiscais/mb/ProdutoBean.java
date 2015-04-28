@@ -7,7 +7,6 @@ import javax.inject.Inject;
 
 import br.com.caelum.notasfiscais.dao.ProdutoDao;
 import br.com.caelum.notasfiscais.modelo.Produto;
-import br.com.caelum.notasfiscais.tx.Transactional;
 
 @ManagedBean
 public class ProdutoBean {
@@ -33,7 +32,6 @@ public class ProdutoBean {
 		return this.produtos;
 	}
 	
-	@Transactional
 	public String adicionar () {
 		//System.out.println("Será que passa por aqui?");
 		if(produto.getId() == null)
