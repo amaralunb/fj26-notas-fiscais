@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import br.com.caelum.notasfiscais.modelo.Usuario;
-import br.com.caelum.notasfiscais.tx.Transactional;
 
 public class UsuarioDao implements Serializable {
 
@@ -15,12 +14,6 @@ public class UsuarioDao implements Serializable {
 	
 	@Inject
 	private EntityManager manager;
-	
-	@Transactional
-	public void adiciona(Usuario usuario) {
-		//persiste o objeto
-		manager.persist(usuario);
-	}
 	
 	public boolean existe(Usuario usuario) {
 		

@@ -4,8 +4,10 @@ import javax.enterprise.event.Event;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
+import br.com.caelum.notasfiscais.dao.Dao;
 import br.com.caelum.notasfiscais.dao.UsuarioDao;
 import br.com.caelum.notasfiscais.modelo.Usuario;
+import br.com.caelum.notasfiscais.tx.Transactional;
 
 @Model
 public class LoginBean {	
@@ -16,6 +18,9 @@ public class LoginBean {
 	
 	@Inject
 	private UsuarioDao dao;
+	
+	@Inject
+	private Dao<Usuario> usuarioDao;
 	
 	@Inject
 	Event<Usuario> eventoLogin;
@@ -32,8 +37,9 @@ public class LoginBean {
 		}
 	}
 
+	@Transactional
 	public String cadastrarUsuario() {
-		dao.adiciona(usuario);
+		usuarioDao.adiciona(usuario);
 		return "login?faces-redirect=true";
 	
 	}

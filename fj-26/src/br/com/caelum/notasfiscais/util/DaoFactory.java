@@ -17,6 +17,7 @@ public class DaoFactory implements Serializable {
 	@Inject
 	private EntityManager manager;
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Produces
 	public <T> Dao<T> createDao(InjectionPoint injectionPoint) {
 		ParameterizedType type = (ParameterizedType) injectionPoint.getType();

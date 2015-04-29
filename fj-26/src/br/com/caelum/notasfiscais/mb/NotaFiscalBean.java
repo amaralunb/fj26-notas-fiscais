@@ -2,12 +2,12 @@ package br.com.caelum.notasfiscais.mb;
 
 import javax.inject.Inject;
 
-import br.com.caelum.notasfiscais.dao.NotaFiscalDao;
-import br.com.caelum.notasfiscais.dao.ProdutoDao;
+import br.com.caelum.notasfiscais.dao.Dao;
 import br.com.caelum.notasfiscais.modelo.Item;
 import br.com.caelum.notasfiscais.modelo.NotaFiscal;
 import br.com.caelum.notasfiscais.modelo.Produto;
 import br.com.caelum.notasfiscais.stereotypes.ViewModel;
+import br.com.caelum.notasfiscais.tx.Transactional;
 import br.com.caelum.notasfiscais.util.EmailFinanceiro;
 
 @ViewModel
@@ -20,12 +20,12 @@ public class NotaFiscalBean {
 	private String email;
 	
 	@Inject
-	private ProdutoDao produtoDao;
+	private Dao<Produto> produtoDao;
 	
 	@Inject
-	private NotaFiscalDao nfDao;
-	//private Dao<NotaFiscal> nfDao;
+	private Dao<NotaFiscal> nfDao;
 
+	@Transactional
 	public void gravar() {
 		this.nfDao.adiciona(notaFiscal);
 		

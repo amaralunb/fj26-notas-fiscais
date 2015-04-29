@@ -1,18 +1,18 @@
 package br.com.caelum.notasfiscais.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
 
-import br.com.caelum.notasfiscais.tx.Transactional;
-
-public class Dao<T> {
+public class Dao<T> implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	private final Class<T> classe;
 
-	@Inject
+	//@Inject
 	private EntityManager manager;
 	
 	public Dao(Class<T> classe, EntityManager manager) {
@@ -20,17 +20,14 @@ public class Dao<T> {
 		this.manager = manager;
 	}
 
-	@Transactional
 	public void adiciona(T t) {
 		manager.persist(t);
 	}
 
-	@Transactional
 	public void remove(T t) {
 		manager.remove(manager.merge(t));
 	}
 
-	@Transactional
 	public void atualiza(T t) {
 		manager.merge(t);
 	}
