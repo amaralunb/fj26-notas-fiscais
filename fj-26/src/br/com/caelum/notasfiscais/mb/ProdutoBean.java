@@ -7,11 +7,15 @@ import javax.inject.Inject;
 
 import br.com.caelum.notasfiscais.dao.ProdutoDao;
 import br.com.caelum.notasfiscais.modelo.Produto;
+import br.com.caelum.notasfiscais.util.EmailComercial;
 
 @ManagedBean
 public class ProdutoBean {
 	private Produto produto = new Produto();
 	private List<Produto> produtos;
+	
+	@Inject @EmailComercial
+	private String email;
 	
 	@Inject 
 	private ProdutoDao produtoDao; 

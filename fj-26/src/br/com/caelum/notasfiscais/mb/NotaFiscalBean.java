@@ -9,6 +9,7 @@ import br.com.caelum.notasfiscais.dao.ProdutoDao;
 import br.com.caelum.notasfiscais.modelo.Item;
 import br.com.caelum.notasfiscais.modelo.NotaFiscal;
 import br.com.caelum.notasfiscais.modelo.Produto;
+import br.com.caelum.notasfiscais.util.EmailFinanceiro;
 
 @Named
 @ViewScoped
@@ -16,6 +17,9 @@ public class NotaFiscalBean {
 	private NotaFiscal notaFiscal = new NotaFiscal();
 	private Item item = new Item();
 	private Long idProduto;
+	
+	@Inject @EmailFinanceiro
+	private String email;
 	
 	@Inject
 	private ProdutoDao produtoDao;
