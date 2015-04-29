@@ -1,9 +1,12 @@
 package br.com.caelum.notasfiscais.dao;
 
 import java.util.List;
+
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
+
+import br.com.caelum.notasfiscais.tx.Transactional;
 
 public class Dao<T> {
 	
@@ -12,18 +15,22 @@ public class Dao<T> {
 	@Inject
 	private EntityManager manager;
 	
-	public Dao(Class<T> classe) {
+	public Dao(Class<T> classe, EntityManager manager) {
 		this.classe = classe;
+		this.manager = manager;
 	}
 
+	@Transactional
 	public void adiciona(T t) {
 		manager.persist(t);
 	}
 
+	@Transactional
 	public void remove(T t) {
 		manager.remove(manager.merge(t));
 	}
 
+	@Transactional
 	public void atualiza(T t) {
 		manager.merge(t);
 	}
