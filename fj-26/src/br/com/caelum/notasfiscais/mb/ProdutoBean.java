@@ -17,8 +17,9 @@ public class ProdutoBean {
 	@Inject @EmailComercial
 	private String email;
 	
-	@Inject 
-	private ProdutoDao produtoDao; 
+	@Inject
+	private ProdutoDao produtoDao;
+	//private Dao<Produto> produtoDao;
 
 	public Produto getProduto() {
 		return this.produto;

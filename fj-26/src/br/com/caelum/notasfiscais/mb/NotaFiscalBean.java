@@ -24,6 +24,7 @@ public class NotaFiscalBean {
 	
 	@Inject
 	private NotaFiscalDao nfDao;
+	//private Dao<NotaFiscal> nfDao;
 
 	public void gravar() {
 		this.nfDao.adiciona(notaFiscal);
