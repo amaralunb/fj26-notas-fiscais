@@ -4,6 +4,7 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
 	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:caelum="http://java.sun.com/jsf/composite/caelum"
 	  xmlns:p="http://primefaces.org/ui">
 
 	<h:head>
@@ -13,10 +14,13 @@
 		<h:outputScript library="js" name="pt_BR.js" />
 	</h:head>
 	<h:body>
-		HELLO WORLD
-		
-		<h:outputLabel value="Data:"/>
-					<p:calendar pattern="dd/MM/yyyy" locale="pt_BR"
-						value="#{notaFiscalBean.notaFiscal.data.time}" />
+		<legend>Dados do Produto</legend>
+			<h:inputHidden value="#{produtoBean.produto.id}" />
+
+			<caelum:campoTexto id="nome" label="Nome:"
+			value="#{produtoBean.produto.nome}" />
+			<p:message for="nome" />
+			
+			<h:commandButton value="Gravar" action="#{produtoBean.adicionar}" />
 	</h:body>
 </html>

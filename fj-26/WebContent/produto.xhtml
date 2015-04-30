@@ -9,6 +9,7 @@
 	<ui:composition template="/_template.xhtml">
 		<ui:define name="corpo">
 			<h:form id="cadastro">
+				<h:messages styleClass="erros" />
 				<h2>
 					<h:outputText value="Novo Produto"
 						rendered="#{empty produtoBean.produto.id}" />
@@ -39,18 +40,18 @@
 					styleClass="dados" rowClasses="impar,par">
 					<h:column>
 						<f:facet name="header">Nome</f:facet>
-							#{produto.nome}
-						</h:column>
+						#{produto.nome}
+					</h:column>
 	
 					<h:column>
 						<f:facet name="header">Descrição</f:facet>
-							#{produto.descricao}
-						</h:column>
+						#{produto.descricao}
+					</h:column>
 	
 					<h:column>
 						<f:facet name="header">Preço</f:facet>
-							#{produto.preco}
-						</h:column>
+						#{produto.preco}
+					</h:column>
 	
 					<h:column>
 						<f:facet name="header"></f:facet>
@@ -59,6 +60,7 @@
 							<f:ajax render="@form" />
 						</h:commandLink>
 					</h:column>
+		
 					<h:column>
 						<h:commandLink value="Alterar">
 							<f:setPropertyActionListener value="#{produto}"
@@ -66,6 +68,7 @@
 							<f:ajax render="@form :cadastro" execute="@form" />
 						</h:commandLink>
 					</h:column>
+		
 				</h:dataTable>
 			</h:form>
 		</ui:define>

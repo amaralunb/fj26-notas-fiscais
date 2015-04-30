@@ -1,6 +1,5 @@
 package br.com.caelum.notasfiscais.mb;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -9,23 +8,22 @@ import br.com.caelum.notasfiscais.dao.Dao;
 import br.com.caelum.notasfiscais.modelo.NotaFiscal;
 import br.com.caelum.notasfiscais.stereotypes.ViewModel;
 
-// COMENTÁRIO
 @ViewModel
 public class ListaNotasFiscaisBean {
-	private List<NotaFiscal> nfLista = new ArrayList<NotaFiscal>();
+	private List<NotaFiscal> notas;
 	
 	@Inject
-	private Dao<NotaFiscal> nfDao;
+	private Dao<NotaFiscal> notaFiscalDao;
 	
-	public List<NotaFiscal> getNfLista() {
-		if(nfLista == null) {
-			this.nfLista = nfDao.listaTodos();
+	public List<NotaFiscal> getNotas() {
+		if(notas == null) {
+			notas = notaFiscalDao.listaTodos();
 		}
-		return nfLista;
+		return this.notas;
 	}
-
-	public void setNfLista(List<NotaFiscal> nfLista) {
-		this.nfLista = nfLista;
+	
+	public void setNotas(List<NotaFiscal> notas) {
+		this.notas = notas;
 	}
 	
 }
