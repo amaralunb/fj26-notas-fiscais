@@ -8,13 +8,13 @@
 
 	<ui:composition template="/_template.xhtml">
 		<ui:define name="corpo">
-			<p:dataTable value="#{listaNotasFiscaisBean.notasFiscais}"
+			<p:dataTable value="#{listaNotasFiscaisBean.nfLista}"
 				var="notaFiscal" paginator="true" rows="5">
 				<p:column headerText="CNPJ">
 					#{notaFiscal.cnpj}
 				</p:column>
 				
-				<p:column headerText="CNPJ">
+				<p:column headerText="Data">
 					<h:outputText value="#{notaFiscal.data.time}">
 						<f:convertDateTime pattern="dd/MM/yyyy" 
 							timeZone="America/Sao_Paulo" />
