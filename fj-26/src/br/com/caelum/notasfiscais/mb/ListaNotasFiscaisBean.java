@@ -9,6 +9,7 @@ import br.com.caelum.notasfiscais.dao.Dao;
 import br.com.caelum.notasfiscais.modelo.NotaFiscal;
 import br.com.caelum.notasfiscais.stereotypes.ViewModel;
 
+// COMENTÁRIO
 @ViewModel
 public class ListaNotasFiscaisBean {
 	private List<NotaFiscal> nfLista = new ArrayList<NotaFiscal>();
