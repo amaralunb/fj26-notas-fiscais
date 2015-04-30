@@ -8,8 +8,19 @@
 
 	<ui:composition template="/_template.xhtml">
 		<ui:define name="corpo">
-			<h:form>
-			</h:form>
+			<p:dataTable value="#{listaNotasFiscaisBean.notasFiscais}"
+				var="notaFiscal" paginator="true" rows="5">
+				<p:column headerText="CNPJ">
+					#{notaFiscal.cnpj}
+				</p:column>
+				
+				<p:column headerText="CNPJ">
+					<h:outputText value="#{notaFiscal.data.time}">
+						<f:convertDateTime pattern="dd/MM/yyyy" 
+							timeZone="America/Sao_Paulo" />
+					</h:outputText>
+				</p:column>
+			</p:dataTable>
 		</ui:define>
 	</ui:composition>
 </html>

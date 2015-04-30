@@ -17,12 +17,14 @@ public class ListaNotasFiscaisBean {
 	private Dao<NotaFiscal> nfDao;
 	
 	public List<NotaFiscal> getNfLista() {
+		if(nfLista == null) {
+			this.nfLista = nfDao.listaTodos();
+		}
 		return nfLista;
 	}
 
 	public void setNfLista(List<NotaFiscal> nfLista) {
 		this.nfLista = nfLista;
 	}
-
 	
 }

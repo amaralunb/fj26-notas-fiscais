@@ -5,19 +5,21 @@
 	  xmlns:h="http://java.sun.com/jsf/html"
 	  xmlns:f="http://java.sun.com/jsf/core"
 	  xmlns:p="http://primefaces.org/ui">
-
+	  
 	<ui:composition template="/_template.xhtml">
+	
+
 		<ui:define name="corpo">
 			<h:form>
 				<fieldset>
-					<legend> Dados da nota </legend>
+					<legend> Dados da nota</legend>
 					
 					<h:outputLabel value="CNPJ do Cliente:" />
 					<p:inputMask value="#{notaFiscalBean.notaFiscal.cnpj}" 
 						mask="99.999.999/9999-99" />
 					
 					<h:outputLabel value="Data:"/>
-					<p:calendar pattern="dd/MM/yyyy"
+					<p:calendar pattern="dd/MM/yyyy" locale="pt_BR"
 						value="#{notaFiscalBean.notaFiscal.data.time}" />
 				</fieldset>
 				
@@ -50,6 +52,19 @@
 						<h:outputText value="#{item.valorUnitario}">
 							<f:convertNumber type="currency" currencySymbol="R$ "
 								locale="pt_BR" />
+						</h:outputText>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Quantidade</f:facet>
+						#{item.quantidade}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Total</f:facet>
+						<h:outputText value="#{item.total}">
+							<f:convertNumber type="currency" currencySymbol="R$ "
+									locale="pt_BR" />
 						</h:outputText>
 					</h:column>
 				</h:dataTable>
